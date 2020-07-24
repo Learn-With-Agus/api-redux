@@ -1,8 +1,13 @@
 import React from "react";
-import ButtonComponent from "./Component/ButtonComponent/ButtonComponent";
+import { createStore, applyMiddleware } from "redux";
+import { Provider } from "react-redux";
+import reducers from "./redux/reducers";
+import thunk from "redux-thunk";
+
+const store = createStore(reducers, applyMiddleware(thunk));
 
 function App() {
-    return <div></div>;
+    return <Provider store={store}></Provider>;
 }
 
 export default App;
