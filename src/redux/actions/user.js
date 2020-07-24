@@ -9,11 +9,12 @@ const getUserLogin = (data) => {
 };
 
 const login = (formData, history) => async (dispatch) => {
-    const url = `${process.env.REACT_APP_BACKEND_ENDPOINT}/api/users/login`;
+    const url = `${process.env.REACT_APP_BACKEND_ENDPOINT}api/users/login`;
 
     const response = await fetch(url);
     const result = await response.json();
 
+    console.log(result);
     const checkUser = result.filter((user) => {
         return formData.email === user.email;
     });
@@ -22,7 +23,7 @@ const login = (formData, history) => async (dispatch) => {
             alert("email atau password anda masih salah tuh");
         } else {
             dispatch(getUserLogin(checkUser[0]));
-            alert(`Welcome back ${checker[0].fullname}`);
+            alert(`Welcome back ${checkUser[0].fullname}`);
             history.push("/home");
         }
     } else {
@@ -32,7 +33,7 @@ const login = (formData, history) => async (dispatch) => {
 
 // register
 const registerUser = (formData, history) => async (dispatch) => {
-    const url = "https://5e33d48de0161c00140ac4fe.mockapi.io/users";
+    const url = `${process.env.REACT_APP_BACKEND_ENDPOINT}api/users`;
     const options = {
         method: "POST",
         body: JSON.stringify(formData),
