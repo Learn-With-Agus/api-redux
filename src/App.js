@@ -2,11 +2,7 @@ import React from "react";
 import ButtonComponent from "./Component/ButtonComponent/ButtonComponent";
 
 function App() {
-    return (
-        <div>
-            <ButtonComponent value="click me" backgroundColor="blue" />
-        </div>
-    );
+    return <div></div>;
 }
 
 export default App;
