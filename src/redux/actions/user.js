@@ -9,12 +9,11 @@ const getUserLogin = (data) => {
 };
 
 const login = (formData, history) => async (dispatch) => {
-    const url = `${process.env.REACT_APP_BACKEND_ENDPOINT}api/users/login`;
+    const url = `https://5f1b22af610bde0016fd35ad.mockapi.io/users`;
 
     const response = await fetch(url);
     const result = await response.json();
 
-    console.log(result);
     const checkUser = result.filter((user) => {
         return formData.email === user.email;
     });
@@ -33,7 +32,7 @@ const login = (formData, history) => async (dispatch) => {
 
 // register
 const registerUser = (formData, history) => async (dispatch) => {
-    const url = `${process.env.REACT_APP_BACKEND_ENDPOINT}api/users`;
+    const url = `https://5f1b22af610bde0016fd35ad.mockapi.io/users`;
     const options = {
         method: "POST",
         body: JSON.stringify(formData),
@@ -44,10 +43,9 @@ const registerUser = (formData, history) => async (dispatch) => {
 
     const response = await fetch(url, options);
     await response.json();
-
     if (response.status === 201) {
         alert("Terima kasih sudah mendaftar");
-        history.push("/");
+        history.push("/login");
     }
 };
 
