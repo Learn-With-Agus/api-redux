@@ -8,26 +8,27 @@ const getUserLogin = (data) => {
     };
 };
 
-const login = (formData, history) => async (dispatch) => {
+const login = () => async (dispatch) => {
     const url = `https://5f1b22af610bde0016fd35ad.mockapi.io/users`;
 
     const response = await fetch(url);
     const result = await response.json();
 
-    const checkUser = result.filter((user) => {
-        return formData.email === user.email;
-    });
-    if (checkUser.length > 0) {
-        if (checkUser[0].password !== formData.password) {
-            alert("email atau password anda masih salah tuh");
-        } else {
-            dispatch(getUserLogin(checkUser[0]));
-            alert(`Welcome back ${checkUser[0].fullname}`);
-            history.push("/home");
-        }
-    } else {
-        alert(`email anda tidak ada di sini bos`);
-    }
+    dispatch(getUserLogin(result));
+    // const checkUser = result.filter((user) => {
+    //     return formData.email === user.email;
+    // });
+    // if (checkUser.length > 0) {
+    //     if (checkUser[0].password !== formData.password) {
+    //         alert("email atau password anda masih salah tuh");
+    //     } else {
+    //         dispatch(getUserLogin(checkUser[0]));
+    //         alert(`Welcome back ${checkUser[0].fullname}`);
+    //         history.push("/home");
+    //     }
+    // } else {
+    //     alert(`email anda tidak ada di sini bos`);
+    // }
 };
 
 // register
