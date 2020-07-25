@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
-import { login } from "../../redux/actions";
+
 import { connect } from "react-redux";
+import { dataUser } from "../../redux/actions";
 
 function Home(props) {
     useEffect(() => {
-        props.dispatch(login());
+        props.dispatch(dataUser());
         // eslint-disable-next-line
     }, []);
 
@@ -25,9 +26,9 @@ function Home(props) {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state.user, "ini state");
+    console.log(state.datauser, "ini state");
     return {
-        data: state.user,
+        data: state.datauser,
     };
 };
 
