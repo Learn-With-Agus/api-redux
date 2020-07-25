@@ -14,7 +14,7 @@ function Home(props) {
                 props.data.map((item) => {
                     return (
                         <div key={item.id}>
-                            <h1>name: {item.fullname}</h1>
+                            <h1>tes: {item.fullname}</h1>
                             <h2>email: {item.email}</h2>
                         </div>
                     );
