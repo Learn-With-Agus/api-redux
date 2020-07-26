@@ -15,7 +15,8 @@ function Dog(props) {
                 props.dog.provinsi.map((item) => {
                     return (
                         <div key={item.id}>
-                            <h1>{item.nama}</h1>
+                            <span>{item.id}. </span>
+                            <span>{item.nama}</span>
                         </div>
                     );
                 })}
