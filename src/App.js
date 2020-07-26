@@ -6,7 +6,7 @@ import thunk from "redux-thunk";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Register, Login, Home } from "./pages";
+import { Register, Login, Home, Dog } from "./pages";
 
 const store = createStore(reducers, applyMiddleware(thunk));
 
@@ -19,11 +19,14 @@ function App() {
                     <Route exact path="/">
                         <Register />
                     </Route>
-                    <Route path="/login">
+                    {/* <Route path="/login">
                         <Login />
                     </Route>
                     <Route exact path="/home">
                         <Home />
+                    </Route> */}
+                    <Route exact path="/dog">
+                        <Dog />
                     </Route>
                 </Switch>
             </Router>

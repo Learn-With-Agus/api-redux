@@ -1,4 +1,5 @@
 import { combineReducers } from "redux";
 import user from "./user";
 import datauser from "./datauser";
-export default combineReducers({ user, datauser });
+import dog from "./dog";
+export default combineReducers({ user, datauser, dog });
